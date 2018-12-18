@@ -11,6 +11,12 @@ Page({
     //  { posts_key: postsData.postList}
     // )
     //this.data.postList = postsData.postList
-    console.log(this.data.postList)
+   
+  },
+  onPostTap: function(event) {
+    var postId = event.currentTarget.dataset.postid;
+    wx.navigateTo({
+      url: "post-detail/post-detail"
+    })
   }
 })
