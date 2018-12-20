@@ -34,13 +34,33 @@ Page({
   },
 
   onCollectionTap: function(event) {
+    //this.getPostsCollectedSync();
+    this.getPostsCollectedAsy();
+  },
+
+  getPostsCollectedAsy: function() {
+    var that = this;
+    wx.getStorage({
+      key: "posts_collected",
+      success: function(res) {
+        var postsCollected = res.data;
+        var postsCollected = wx.getStorageSync('posts_collected');
+        var postCollected = postsCollected[that.data.currentPostId];
+        //收藏转换
+        postCollected = !postCollected;
+        postsCollected[that.data.currentPostId] = postCollected;
+        that.showModal(postsCollected, postCollected);
+      }
+    })
+  },
+
+  getPostsCollectedSync: function() {
     var postsCollected = wx.getStorageSync('posts_collected');
     var postCollected = postsCollected[this.data.currentPostId];
     //收藏转换
     postCollected = !postCollected;
     postsCollected[this.data.currentPostId] = postCollected;
     this.showModal(postsCollected, postCollected);
-
   },
 
   showModal: function (postsCollected, postCollected) {
