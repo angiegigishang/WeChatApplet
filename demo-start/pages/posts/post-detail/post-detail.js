@@ -13,7 +13,7 @@ Page({
     this.setData ({
       postData: postData
     })
-
+    
     // var postsCollected = {
     //   1: "true",
     //   2: "false",
@@ -45,6 +45,22 @@ Page({
     //更新数据绑定,从而实现切换照片
     this.setData({
       collected: postCollected
+    })
+
+    // wx.showToast({
+    //   title: postCollected ? '收藏成功' : '取消成功',
+    //   duration: 1000,
+    //   icon: 'success'
+    // })
+
+    wx.showModal({
+      title:'收藏',
+      content: '是否收藏该文章',
+      showCancel: "true",
+      cancelText: "不收藏",
+      cancelColor: '#333',
+      confirmText: '收藏',
+      confirmColor: '#405f80'
     })
   }
 
