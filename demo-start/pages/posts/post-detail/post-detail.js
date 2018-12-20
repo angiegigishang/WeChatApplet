@@ -123,6 +123,8 @@ Page({
 
  //音乐启动暂停功能
   onMusicTap: function(event) {
+    var currentPostId = this.data.currentPostId;
+    var postData = postsData.postList[currentPostId];
     var isPlayingMusic = this.data.isPlayingMusic;
     if(isPlayingMusic) {
       wx.pauseBackgroundAudio();
@@ -131,9 +133,9 @@ Page({
       })
     }else {
       wx.playBackgroundAudio({
-        dataUrl: 'http://ws.stream.qqmusic.qq.com/C100003507bR0gDKBm.m4a?fromtag=38',
-        title: '夜夜夜夜-齐秦',
-        coverImgUrl: "http://y.gtimg.cn/music/photo_new/T002R150x150M000001TEc6V0kjpVC.jpg?max_age=2592000"
+        dataUrl: postData.music.url,
+        title: postData.music.title,
+        coverImgUrl: postData.music.coverImg
       })
       this.setData({
         isPlayingMusic: true
