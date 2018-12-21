@@ -1,7 +1,9 @@
 Page({
   onTap: function(event) {
-     wx.redirectTo({
-       url: "../posts/post"
-     })   
+    console.log('aaa')
+    wx.navigateTo({
+      url: "../posts/post"
+    }) 
+    console.log('bbb')  
   }
 })

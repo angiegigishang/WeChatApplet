@@ -1,0 +1,8 @@
+<import src="../stars/stars-template.wxml" />
+<template name="movieTemplate">
+  <view>
+    <image src="http:\/\/img3.doubanio.com\/view\/photo\/photo\/public\/p2409020809.jpg"></image>
+    <text></text>
+    <template is="starsTemplate" />
+  </view>
+</template>
