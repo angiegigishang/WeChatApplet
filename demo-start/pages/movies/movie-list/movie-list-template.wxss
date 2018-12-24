@@ -12,6 +12,9 @@
 
 .movie-head {
   padding: 30rpx 20rpx 22rpx;
+  /* display: flex;
+  flex-direction: row;
+  justify-count: space-between; */
 }
 
 .slogan {
