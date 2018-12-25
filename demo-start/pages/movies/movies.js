@@ -3,11 +3,14 @@ var app = getApp();
 Page({
   onLoad: function(event) {
     var inTheatersUrl = app.globalData.doubanBase + '/movies.today?key=a08b87e13b7f9bec5d8d2868e484718e&cityid=10';
-    var comingSoonUrl = app.globalData.doubanBase+'/movies.today?key=1a08b87e13b7f9bec5d8d2868e484718e&cityid=10';
-    var top250Url = app.globalData.doubanBase +'/movies.today?key=1a08b87e13b7f9bec5d8d2868e484718e&cityid=10'; 
-    this.getMovieListData(inTheatersUrl);
+    var comingSoonUrl = app.globalData.doubanBase+'/movies.today?key=a08b87e13b7f9bec5d8d2868e484718e&cityid=10';
+    var top250Url = app.globalData.doubanBase +'/movies.today?key=a08b87e13b7f9bec5d8d2868e484718e&cityid=10'; 
+
+    this.getMovieListData(inTheatersUrl, 'inTheaters');
+    this.getMovieListData(comingSoonUrl, 'comingSoon');
+    this.getMovieListData(top250Url, 'top250');
   },
-  getMovieListData: function(url) {
+  getMovieListData: function(url, settedKey) {
     var that = this;
     wx.request({
       url: url,
@@ -17,14 +20,14 @@ Page({
       },      
       success: function (res) {
         console.log(res.data.result)
-        that.processDoubanData(res.data.result)
+        that.processDoubanData(res.data.result, settedKey)
       },
       fail: function () {
         console.log('请求失败')
       }
     })
   },
-  processDoubanData: function(moviesDouban) {
+  processDoubanData: function(moviesDouban, settedKey) {
     var movies = [];
     for(var i=0; i<3; i++ ){
       var subject = moviesDouban[i];
@@ -40,9 +43,10 @@ Page({
       }
       movies.push(tempo)
     }
-    this.setData({
+    var readyData = {};
+    readyData[settedKey] = {
       movies: movies
-    })
-    console.log('1',movies)
+    }
+    this.setData(readyData);
   }
 })
