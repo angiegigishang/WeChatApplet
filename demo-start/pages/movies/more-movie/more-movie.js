@@ -13,7 +13,7 @@ Page({
     var dataUrl = "";
     switch(category) {
       case "正在热映":
-        dataUrl = app.globalData.doubanBase + '/movies.today?key=a08b87e13b7f9bec5d8d2868e484718e&cityid=10';
+        dataUrl = app.globalData.doubanBase + '/movies.today?key=1a08b87e13b7f9bec5d8d2868e484718e&cityid=10';
         break;
       case "即将上映":
         dataUrl = app.globalData.doubanBase + '/movies.today?key=1a08b87e13b7f9bec5d8d2868e484718e&cityid=10';
