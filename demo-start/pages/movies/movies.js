@@ -8,7 +8,7 @@ Page({
     top250: {}
   },
   onLoad: function(event) {
-    var inTheatersUrl = app.globalData.doubanBase + '/movies.today?key=1a08b87e13b7f9bec5d8d2868e484718e&cityid=10';
+    var inTheatersUrl = app.globalData.doubanBase + '/movies.today?key=a08b87e13b7f9bec5d8d2868e484718e&cityid=10';
     //var comingSoonUrl = app.globalData.doubanBase+'/movies.today?key=a08b87e13b7f9bec5d8d2868e484718e&cityid=10';
     //var top250Url = app.globalData.doubanBase +'/movies.today?key=a08b87e13b7f9bec5d8d2868e484718e&cityid=10'; 
 
